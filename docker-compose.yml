@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  cron-for-drupal:
+    environment:
+      PHP_FPM_CLEAR_ENV: 'no'
+      PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
+    build: ./docker_local/cron
+    volumes:
+      - ./web:/var/www/html:cached
